@@ -1,0 +1,45 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+
+int main(){
+    int i, j, testCases, n, a[100000],k,l,temp,count=0, ct;
+    scanf("%d", &testCases);
+    for(i=0;i<testCases; i++){
+        ct=0;
+        scanf("%d", &n);
+        for(j=0; j<n; j++){
+            scanf("%d", &a[j]);
+            if(a[j]-j-1>2){
+                ct++;
+            }
+            if(j==n-1 && ct>0){
+                printf("Too chaotic\n");
+                goto End;
+            }
+        }
+        count=0;
+        for(l=0;l<n-1;l++){
+        for(k=l+1; k<n; k++){
+            if(a[l]>a[k]){
+            temp = a[k];
+            a[k] = a[l];
+            a[l] = temp;
+            count++;
+            }
+        }}
+        printf("%d\n", count);
+        End:
+            ;
+    }
+    return 0;
+}
+
+
