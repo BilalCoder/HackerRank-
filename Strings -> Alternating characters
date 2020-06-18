@@ -1,0 +1,25 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    int i, testCases, j, count=0;
+    char str[100000];
+    scanf("%d", &testCases);
+    for(i=0; i<testCases; i++){
+        scanf("%s", str);
+        for(j=0; j<strlen(str); j++){
+            if(j>0 && str[j]==str[j-1]){
+                count++;
+        }
+    }
+    printf("%d\n", count);
+    count=0;
+}
+}
