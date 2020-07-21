@@ -1,0 +1,43 @@
+// Program  for matching characters (like the parenthesis matching);
+// abbacbaabcaa has 5 matching characters which are subsequent to each other.
+
+
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char stack[10];
+top = -1;
+int count=0;
+int push(int item, int position){
+    if(position == 0)
+        top=-1;
+    stack[++top] = item;
+    if(top>0 && stack[top]==stack[top-1]){
+        pop();
+        pop();
+        count++;
+    }
+    return count;
+}
+void pop(){
+    top--;
+}
+int main(){
+    int i, j, testCases;
+    char x[10];
+    scanf("%d", &testCases);
+    for(i=0;i<testCases;i++){
+        scanf("%s",x);
+        for(j=0; x[j]!='\0'; j++){
+            count = push(x[j], j);
+        }
+        printf("%d", count);
+}
+}
